@@ -1,14 +1,11 @@
-
-def humanized_time_ago(time_ago_in_minutes)
-    if time_ago_in_minutes >= 60
-    "#{time_ago_in_minutes / 60} hours ago"
-    else
-    "#{time_ago_in_minutes} minutes ago"
-    end
-end
-
-
 get '/' do
+  @posts = Post.order(created_at: :desc)
+  erb(:index)   
+end
+    
+    
+    
+=begin OLD CODE TO DELETE BECAUSE OF ACTIVE RECORD SETUP
     @post_shark = {
         username: "sharky_j",
         avatar_url: "http://naserca.com/images/sharky_j.jpg",
@@ -49,6 +46,6 @@ get '/' do
     }
     
     @posts = [@post_shark, @post_whale, @post_marlin]
+
+=end 
     
-  erb(:index)   
-end
