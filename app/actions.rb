@@ -64,6 +64,32 @@ get '/logout' do
   redirect to ('/')
 end
   
+get '/posts/new' do
+  @post = Post.new
+  erb(:"posts/new")
+end
+  
+post '/posts' do
+  photo_url = params[:photo_url]
+  
+  #instantiate new Post
+  @post = Post.new({ photo_url: photo_url, user_id: current_user.id })
+  
+  #if @post validates, save
+  if @post.save
+    redirect(to('/'))
+  else
+    erb(:"posts/new")
+  end
+end
+  
+get '/posts/:id' do
+  @post = Post.find(params[:id]) # find the post with the ID from the URL
+  erb(:"posts/show")              # render app/views/posts/show.erb
+end
+  
+  
+  
   
 =begin OLD CODE TO DELETE BECAUSE OF ACTIVE RECORD SETUP
     @post_shark = {
