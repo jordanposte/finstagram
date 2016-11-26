@@ -5,7 +5,7 @@
         <h2><%= @post.user.username %></h2>
         <h3><%= @post.humanized_time_ago %></h3>
       </div>
-      <a class="photo" href="#">
+      <a class="photo" href="/posts/<%= post.id %>">
         <img src="<%= @post.photo_url %>" alt="post from <%= @post.user.username %>">
       </a>
       <div class="actions">

@@ -1,5 +1,11 @@
 <h2>New Post</h2>
 
+<ul class="errors">
+    <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+    <% end %>
+</ul>
+
 <form action="/posts" method="POST">
     <div class="form-group">
         <label for="photo_url">Photo URL</label>
@@ -10,8 +16,3 @@
     </div>
 </form>
 
-<ul class="errors">
-    <% @post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-    <% end %>
-</ul>
