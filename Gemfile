@@ -14,5 +14,4 @@ gem 'pg'
 
 group :development, :test do
   gem 'shotgun'
-  gem 'sqlite3'
 end
