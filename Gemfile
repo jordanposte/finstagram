@@ -10,6 +10,7 @@ gem 'sinatra-activerecord'
 
 gem 'puma'
 gem 'tux'
+gem 'pg'
 
 group :development, :test do
   gem 'shotgun'
